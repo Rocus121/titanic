@@ -8,13 +8,17 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import RandomForestClassifier
 
+st.image(Image.open("titan.jpg"), use_container_width=True)
+
+st.title("e tu saresti sopravvisuto?")
 def main():
+
     
     loaded = joblib.load('prev_titanic.pkl')
     
     eta = st.slider("quanti anni hai?", 0, 100, 18)
-    genere = st.sidebar.selectbox('indica il tuo sesso', 'M', 'F', key='Sex')
-    porto = st.sidebar.selectbox('in che zona saresti vissuto dell UK?', 's', 'c', 'q')
+    genere = st.sidebar.selectbox('indica il tuo sesso', ["M", "F"], key='Sex')
+    porto = st.sidebar.selectbox('in che zona saresti vissuto dell UK?', ['s', 'c', 'q'], key= "porto")
     ral = st.slider("calcoliamo la tua classe e il costo del biglietti che saresti stato in grado di pagare in base alla RAL in K Euro", 0, 100, 22)
     
     pclass = st.slider('classe', 1, 3, 2)
@@ -47,6 +51,8 @@ def main():
             st.image(Image.open("rose_old.jpg"), use_container_width=True)
             
             return pred
-        
+    
+    st.text(f"saresti{sopravvisuto(df_utente)}")   
+     
 if __name__ == "__main__":
     main()
