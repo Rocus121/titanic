@@ -17,9 +17,9 @@ def main():
     loaded = joblib.load('prev_titanic.pkl')
     
     eta = st.slider("quanti anni hai?", 0, 100, 18)
-    genere = st.sidebar.selectbox('indica il tuo sesso', ["M", "F"], key='Sex')
-    porto = st.sidebar.selectbox('in che zona saresti vissuto dell UK?', ['s', 'c', 'q'], key= "porto")
-    ral = st.slider("calcoliamo la tua classe e il costo del biglietti che saresti stato in grado di pagare in base alla RAL in K Euro", 0, 100, 22)
+    genere = st.selectbox('indica il tuo sesso', ["M", "F"], key='Sex')
+    porto = st.selectbox('porto?', ['s', 'c', 'q'], key= "porto")
+    ral = st.slider("calcoliamo la tua classe e il costo del bigliett che saresti stato in grado di pagare in base alla RAL in K Euro", 0, 100, 22)
     
     pclass = st.slider('classe', 1, 3, 2)
     
